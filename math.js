@@ -1,4 +1,4 @@
-/* Every file can be said as a module . We can export anything from one module to another module
+/* Every file can be said as a module . We can export anything from one module to another module like
 Variable,object,function etc.
 */
 
@@ -40,4 +40,4 @@ exports.div = (a,b) => {
 module.exports.add = add; //this will export the previously declared add function
 
 
-console.log(module);
+//console.log(module);
