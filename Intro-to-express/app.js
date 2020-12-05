@@ -7,7 +7,12 @@ app.get('/contact',(req,res)=>{
 })
 
 app.get('/about',(req,res)=>{
-    res.send('<h1> Welcome to the about page </h1>')
+   //res.send('<h1> Welcome to the about page </h1>')
+   res.json({
+       Name: 'Faisal',
+       Age: '23',
+       Birthdate: '12th july 1997'
+   })
 })
 
 // The root router must be declared in the 2nd last always 
