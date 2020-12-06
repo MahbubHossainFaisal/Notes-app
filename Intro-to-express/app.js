@@ -10,7 +10,16 @@ function middleWare(req,res,next){
     next();
 }
 
-app.use(middleWare);
+function tinyLogger(){
+    return(req,res,next)=> {
+        console.log(`${req.method} - ${req.url}`);
+        next();
+    }
+}
+
+const addMiddlewares = [middleWare, tinyLogger()]
+
+app.use(addMiddlewares);
 
 app.get('/contact',(req,res)=>{
     res.send('<h1> Welcome to the contact page! </h1>')
