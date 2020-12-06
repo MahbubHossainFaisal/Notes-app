@@ -3,12 +3,20 @@ const morgan = require('morgan');
 
 const app = express();
 
+function middleWare(req,res,next){
+    if(req.url==='/contact'){
+        res.send('<h2> Sorry! Contact page is blocked by the owner<h2>')
+    }
+    next();
+}
+
+app.use(middleWare);
 
 app.get('/contact',(req,res)=>{
     res.send('<h1> Welcome to the contact page! </h1>')
 })
 
-app.get('/about',morgan('dev'),(req,res)=>{
+app.get('/about',(req,res)=>{
    //res.send('<h1> Welcome to the about page </h1>')
    res.json({
        Name: 'Faisal',
