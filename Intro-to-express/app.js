@@ -1,6 +1,9 @@
 const express = require('express');
+const morgan = require('morgan');
 
 const app = express();
+
+app.use(morgan('dev'));
 
 app.get('/contact',(req,res)=>{
     res.send('<h1> Welcome to the contact page! </h1>')
