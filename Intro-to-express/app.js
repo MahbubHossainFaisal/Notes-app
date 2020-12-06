@@ -3,13 +3,12 @@ const morgan = require('morgan');
 
 const app = express();
 
-app.use(morgan('dev'));
 
 app.get('/contact',(req,res)=>{
     res.send('<h1> Welcome to the contact page! </h1>')
 })
 
-app.get('/about',(req,res)=>{
+app.get('/about',morgan('dev'),(req,res)=>{
    //res.send('<h1> Welcome to the about page </h1>')
    res.json({
        Name: 'Faisal',
