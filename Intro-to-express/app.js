@@ -3,37 +3,26 @@ const morgan = require('morgan');
 
 const app = express();
 
-function middleWare(req,res,next){
-    if(req.url==='/contact'){
-        res.send('<h2> Sorry! Contact page is blocked by the owner<h2>')
-    }
-    next();
-}
 
-function tinyLogger(){
-    return(req,res,next)=> {
-        console.log(`${req.method} - ${req.url}`);
-        next();
-    }
-}
+//express user router
+const router = express.Router()
 
-const addMiddlewares = [middleWare, tinyLogger()]
-
-app.use(addMiddlewares);
-
-app.get('/contact',(req,res)=>{
-    res.send('<h1> Welcome to the contact page! </h1>')
+router.get('/login',(req,res)=> {
+    res.send('This is a login page')
 })
 
-app.get('/about',(req,res)=>{
-   //res.send('<h1> Welcome to the about page </h1>')
-   res.json({
-       Name: 'Faisal',
-       Age: '23',
-       Birthdate: '12th july 1997'
-   })
+router.get('/logout',(req,res) => {
+    res.send('This is a logout page')
 })
 
+router.get('/signup',(req,res) => {
+    res.send('This is a signup page')
+})
+
+app.use('/user',router) //this user path with will have no physical existance but will be the mother route of all the sub routes above
+
+//User router end
+////////////////////
 // The root router must be declared in the 2nd last always 
 app.get('/',(req,res)=>{
     res.send('<h1> Welcome to the site! </h1>')
