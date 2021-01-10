@@ -9,5 +9,11 @@
     <h1> <%= title %>  </h1>
     <p>Hi there,I am Mahbub Hossain Faisal. I am a software engineering student at American International University-Bangladesh. </p>
     <%= new Date().toString() %>  
+    <% if(post.Published) { %> 
+        <h2>Title: <%= post.Title %>  </h2>
+        <p>Body:  <%= post.Body %>   </p>
+        <% } else { %> 
+            <p>post is not yet published!!! </p>
+            <% } %> 
 </body>
 </html>

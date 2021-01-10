@@ -14,7 +14,12 @@ app.use(express.urlencoded({ extended: true}))
 app.use(express.json())
 
 app.get('/',(req,res) => {
-    res.render('index', {title: 'EJS - IS AWESOME TEMPLATE ENGINE'})
+    let post = {
+        Title: 'Demo-Title',
+        Body: 'Demo-body',
+        Published: true
+    }
+    res.render('index', {title: 'EJS - IS AWESOME TEMPLATE ENGINE',post})
 })
 
 
