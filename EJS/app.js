@@ -2,17 +2,20 @@ const express = require('express')
 
 const morgan = require('morgan')
 
-const contactRoutes = require('./contactRoutes')
 
-app.use('/contacts',contactRoutes)
-
-app.get('*',(req,res) => {
-    res.send(<h1> Please use the correct Routes </h1>)
-})
 
 const app = express()
 
+app.set('view engine', 'ejs')
+
+
 app.use(morgan('dev'))
+app.use(express.urlencoded({ extended: true}))
+app.use(express.json())
+
+app.get('/',(req,res) => {
+    res.render('index')
+})
 
 
 const PORT = process.env.PORT || 8080
