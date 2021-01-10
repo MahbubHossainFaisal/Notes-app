@@ -12,8 +12,16 @@
     <% if(post.Published) { %> 
         <h2>Title: <%= post.Title %>  </h2>
         <p>Body:  <%= post.Body %>   </p>
-        <% } else { %> 
+    <% } else { %> 
             <p>post is not yet published!!! </p>
-            <% } %> 
+    <% } %> 
+
+    <ul>
+        <% for(let b of books) { %>
+            <li> <%= b.title  %> by <%= b.author %>  </li>
+            <% } %>
+    </ul>
+    
+    
 </body>
 </html>

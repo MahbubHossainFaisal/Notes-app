@@ -19,7 +19,12 @@ app.get('/',(req,res) => {
         Body: 'Demo-body',
         Published: true
     }
-    res.render('index', {title: 'EJS - IS AWESOME TEMPLATE ENGINE',post})
+    let books = [
+        {title: 'Introduction to C', author: 'Mahbub Hossain'},
+        {title: 'Introduction to C++', author: 'Monwar Hossain' },
+        {title: 'Introduction to Java', author: 'Anwar Hossain'}
+    ]
+    res.render('index', {title: 'EJS - IS AWESOME TEMPLATE ENGINE',post,books})
 })
 
 
