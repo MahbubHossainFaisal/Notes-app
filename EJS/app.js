@@ -14,10 +14,10 @@ app.use(express.urlencoded({ extended: true}))
 app.use(express.json())
 
 app.get('/about', (req,res) => {
-    res.render('pages/about')
+    res.render('pages/about', {title:'About Page'})
 })
 app.get('/help', (req,res) => {
-    res.render('pages/help')
+    res.render('pages/help', {title: 'Help Page'})
 })
 
 app.get('/',(req,res) => {
