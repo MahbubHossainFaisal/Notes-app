@@ -1,5 +1,6 @@
 const chalk = require('chalk')
 const fs = require('fs')
+const { title } = require('process')
 
 const getNotes = () => {
     return "this a test....."
@@ -42,6 +43,24 @@ const removeNote= (title) => {
 
 }
 
+const listNotes = () => {
+    
+
+    const notes = loadNotes()
+    console.log(chalk.red('Your Notes'))
+    
+   
+
+   if(notes.length>0) {
+
+        notes.forEach((note) => {
+        console.log(note.title)
+    })
+   } else {
+       console.log('Sorry! There is no notes to show')
+   }
+}
+
 const loadNotes = () => {
     try {
         const dataBuffer = fs.readFileSync('notes.json')
@@ -60,5 +79,6 @@ const saveNotes = (notes) => {
 module.exports = {
     getNotes : getNotes,
     addNote : addNote,
-    removeNote: removeNote
+    removeNote: removeNote,
+    listNotes : listNotes
 }

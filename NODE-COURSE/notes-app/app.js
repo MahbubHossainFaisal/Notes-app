@@ -44,7 +44,7 @@ const notes = require('./notes.js')
      command: 'list',
      describe: 'List all notes',
      handler () { 
-         console.log('Listing all notes')
+        notes.listNotes()
       }
  })
  yargs.command({
