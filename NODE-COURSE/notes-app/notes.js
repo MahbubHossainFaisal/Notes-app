@@ -18,10 +18,10 @@ const addNote = (title,body) => {
 
         saveNotes(notes)
 
-        console.log(chalk.green('New note has been added'))
+        console.log(chalk.green.inverse('New note has been added'))
 
     } else {
-        console.log(chalk.yellow('Note title already taken'))
+        console.log(chalk.red.inverse('Note title already taken'))
     }
 
    
@@ -35,7 +35,7 @@ const removeNote= (title) => {
 
     saveNotes(notesToKeep)
     if(notes.length === notesToKeep.length) {
-        console.log (chalk.blue('No notes found to remove!!!'))
+        console.log (chalk.yellow.inverse('No notes found to remove!!!'))
     }
     if(notes.length > notesToKeep.length) {
         console.log(chalk.red.inverse('Notes has been removed !!!'))
@@ -47,17 +47,17 @@ const listNotes = () => {
     
 
     const notes = loadNotes()
-    console.log(chalk.red('Your Notes'))
+    console.log(chalk.red.blue.inverse('Your Notes'))
     
    
 
    if(notes.length>0) {
 
         notes.forEach((note) => {
-        console.log(note.title)
+        console.log(chalk.white.inverse(note.title))
     })
    } else {
-       console.log('Sorry! There is no notes to show')
+       console.log(chalk.yellow.inverse('Sorry! There is no notes to show'))
    }
 }
 
@@ -66,10 +66,10 @@ const readNote = (title) => {
     const notes = loadNotes()
     const particularNote = notes.find((note) => note.title === title)
     if(particularNote){
-        console.log('Title: ' + chalk.green(particularNote.title))
-        console.log(chalk.white('Body: ' + particularNote.body))
+        console.log('Title: ' + chalk.green.inverse(particularNote.title))
+        console.log('Body: '+ chalk.white.inverse( particularNote.body))
     } else {
-        console.log('Sorry! There is no such note!!!')
+        console.log(chalk.red.inverse('Sorry! There is no such note!!!'))
     }
 }
 
